@@ -10,10 +10,31 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        release {
+            storeFile file('ssit.jks')
+            storePassword "sevenstar"
+            keyAlias "sevenstarclient"
+            keyPassword "sevenstarclient"
+        }
+        debug {
+            storeFile file('ssit.jks')
+            storePassword "sevenstar"
+            keyAlias "sevenstarclient"
+            keyPassword "sevenstarclient"
+        }
+    }
     buildTypes {
         release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFile 'proguard-rules.pro'
+            zipAlignEnabled true
+        }
+        debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+            proguardFile 'proguard-rules.pro'
         }
     }
 }
