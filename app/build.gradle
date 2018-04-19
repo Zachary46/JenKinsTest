@@ -42,9 +42,9 @@ android {
         abortOnError false
     }
 
-    aaptOptions {
+/*    aaptOptions {
         cruncherEnabled = false
-    }
+    }*/
 }
 
 dependencies {
