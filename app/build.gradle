@@ -44,7 +44,7 @@ android {
 
     aaptOptions {
         cruncherEnabled = false
-        useNewCruncher = false
+        useNewCruncher = true
     }
 }
 
