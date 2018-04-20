@@ -6,9 +6,20 @@ android {
         applicationId "com.zlf.jenkinstest"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 100
+        versionName "1.0.0"
     }
+
+    /**
+     * gradle3.0修改apk包名
+     */
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                outputFileName = "Jenkins-${variant.name}-v${variant.versionName}.apk"
+            }
+    }
+
     signingConfigs {
         release {
             storeFile file('ssit.jks')
@@ -29,11 +40,13 @@ android {
             signingConfig signingConfigs.release
             proguardFile 'proguard-rules.pro'
 
+
         }
         debug {
             minifyEnabled false
             signingConfig signingConfigs.debug
             proguardFile 'proguard-rules.pro'
+
         }
     }
 
